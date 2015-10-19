@@ -82,7 +82,7 @@ public class Car {
 			vgood = vgood/total;
 			
 			
-//			out = new BufferedWriter(new FileWriter("Result.txt"));
+			out = new BufferedWriter(new FileWriter("Result.txt"));
 			reader = new BufferedReader(new FileReader("Sample/car_test.txt"));
 			
 			for(int j=1; (line = reader.readLine()) != null; j++) {
@@ -93,18 +93,15 @@ public class Car {
 					unacc_value *= counts.get(arr[i])[1];
 					good_value *= counts.get(arr[i])[2];
 					vgood_value *= counts.get(arr[i])[3];
-//					out.write(arr[i]);
+//					System.out.print(arr[i]+",");
+					out.write(arr[i]+",");
 				}
 				acc_value *= acc;
 				unacc_value *= unacc;
 				good_value *= good;
 				vgood_value *= vgood;
 				
-//				if(yes_value>no_value) out.write("Yes");
-//				else out.write("No");
-//				out.newLine();
-				
-				System.out.println("Case " + j);
+//				System.out.println("Case " + j);
 //				System.out.println("acc = "+acc_value+"\tunacc = "+unacc_value+"\tgood = "+good_value+"\tvgood= "+vgood_value);
 				double[] tmp = {acc_value, unacc_value,good_value,vgood_value};
 				double max=0;
@@ -116,13 +113,10 @@ public class Car {
 					}
 				}
 				
-				if(max_index == 0) System.out.println("acc");
-				else if(max_index == 1) System.out.println("unacc");
-				else if(max_index == 2) System.out.println("good");
-				else System.out.println("vgood");
-//				if(yes_value>no_value) System.out.println("PLAY TENNIS!!");
-//				else System.out.println("DON'T PLAY TENNIS!!");
-				System.out.println();
+				if(max_index == 0) out.write("acc");
+				else if(max_index == 1) out.write("unacc");
+				else if(max_index == 2) out.write("good");
+				else out.write("vgood");
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

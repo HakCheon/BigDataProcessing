@@ -62,20 +62,13 @@ public class PlayTenis {
 				for(int i=0; i<arr.length; i++) {
 					yes_value *= counts.get(arr[i])[0];
 					no_value *= counts.get(arr[i])[1];
-					out.write(arr[i]);
+					System.out.print(arr[i]+",");
 				}
 				yes_value *= yes;
 				no_value *= no;
 				
-				if(yes_value>no_value) out.write("Yes");
-				else out.write("No");
-				out.newLine();
-				
-				System.out.println("Case " + j);
-				System.out.println("Yes = "+yes_value+"\tNo = "+no_value);
-				if(yes_value>no_value) System.out.println("PLAY TENNIS!!");
-				else System.out.println("DON'T PLAY TENNIS!!");
-				System.out.println();
+				if(yes_value>no_value) System.out.println("Yes");
+				else System.out.println("No");
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
