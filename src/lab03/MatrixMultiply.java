@@ -24,18 +24,18 @@ public class MatrixMultiply {
 	    public void map(Object key, Text value, Context context
 	                    ) throws IOException, InterruptedException {
 	    	if(!value.equals("")){
-			String[] arr = value.toString().split ("\t");
-			
-			if(arr.length > 0) {
-				if(arr[0].equals("A")) {
-					for( int k=0; k<n; k++) 
-						context.write(new Text(arr[1] + "," + k), new Text(arr[2] + "," + arr[3]));
+				String[] arr = value.toString().split ("\t");
+				
+				if(arr.length > 0) {
+					if(arr[0].equals("A")) {
+						for( int k=0; k<n; k++) 
+							context.write(new Text(arr[1] + "," + k), new Text(arr[2] + "," + arr[3]));
+					}
+					else if(arr[0].equals("B")) {
+						for( int k=0; k<m; k++) 
+							context.write(new Text(k + "," + arr[2]), new Text(arr[1] + "," + arr[3]));
+					}
 				}
-				else if(arr[0].equals("B")) {
-					for( int k=0; k<m; k++) 
-						context.write(new Text(k + "," + arr[2]), new Text(arr[1] + "," + arr[3]));
-				}
-			}
 	    	}
 	    }
 	  }

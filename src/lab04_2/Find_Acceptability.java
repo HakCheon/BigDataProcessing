@@ -7,7 +7,7 @@ import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Car {
+public class Find_Acceptability {
 	public static void main(String[] args) {
 		double acc=0, unacc=0, good=0, vgood=0, total;
 		String line;
@@ -82,7 +82,7 @@ public class Car {
 			vgood = vgood/total;
 			
 			
-			out = new BufferedWriter(new FileWriter("Result.txt"));
+			out = new BufferedWriter(new FileWriter("Result_Find_Acceptability.txt"));
 			reader = new BufferedReader(new FileReader("Sample/car_test.txt"));
 			
 			for(int j=1; (line = reader.readLine()) != null; j++) {
@@ -93,7 +93,6 @@ public class Car {
 					unacc_value *= counts.get(arr[i])[1];
 					good_value *= counts.get(arr[i])[2];
 					vgood_value *= counts.get(arr[i])[3];
-//					System.out.print(arr[i]+",");
 					out.write(arr[i]+",");
 				}
 				acc_value *= acc;
@@ -101,8 +100,6 @@ public class Car {
 				good_value *= good;
 				vgood_value *= vgood;
 				
-//				System.out.println("Case " + j);
-//				System.out.println("acc = "+acc_value+"\tunacc = "+unacc_value+"\tgood = "+good_value+"\tvgood= "+vgood_value);
 				double[] tmp = {acc_value, unacc_value,good_value,vgood_value};
 				double max=0;
 				int max_index = 0;
@@ -117,7 +114,10 @@ public class Car {
 				else if(max_index == 1) out.write("unacc");
 				else if(max_index == 2) out.write("good");
 				else out.write("vgood");
+				
+				out.newLine();
 			}
+			out.close();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

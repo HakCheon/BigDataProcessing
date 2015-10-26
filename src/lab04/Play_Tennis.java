@@ -1,12 +1,11 @@
 package lab04;
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.HashMap;
 
-public class PlayTenis {
+public class Play_Tennis {
 	public static void main(String[] args) {
 		double yes=0, no=0, total;
 		String line;
@@ -53,7 +52,7 @@ public class PlayTenis {
 			no = no/total;
 			
 			
-			out = new BufferedWriter(new FileWriter("Result.txt"));
+			out = new BufferedWriter(new FileWriter("Result_Play_Tennis.txt"));
 			reader = new BufferedReader(new FileReader("Sample/play-tennis_test.txt"));
 			
 			for(int j=1; (line = reader.readLine()) != null; j++) {
@@ -62,14 +61,17 @@ public class PlayTenis {
 				for(int i=0; i<arr.length; i++) {
 					yes_value *= counts.get(arr[i])[0];
 					no_value *= counts.get(arr[i])[1];
-					System.out.print(arr[i]+",");
+					out.write(arr[i]+",");
 				}
 				yes_value *= yes;
 				no_value *= no;
 				
-				if(yes_value>no_value) System.out.println("Yes");
-				else System.out.println("No");
+				if(yes_value>no_value) out.write("Yes");
+				else out.write("No");
+				out.newLine();
 			}
+			
+			out.close();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

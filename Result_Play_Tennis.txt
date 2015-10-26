@@ -1,0 +1,2 @@
+Overcast,Hot,Normal,Weak,Yes
+Rain,Mild,High,Strong,Yes
