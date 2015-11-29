@@ -122,13 +122,21 @@ public class KmeansTemplate {
 			 * fill here
 			 */
 			int i=0;
-			int x,y,z;
+			double x=0,y=0,z=0;
 			for(VectorWritable value : values) {
 				i++;
 				String[] data = value.getVector().split("\t");
-				x += Double.parseDouble(data)
-				
+				x += Double.parseDouble(data[0]);
+				y += Double.parseDouble(data[1]);
+				z += Double.parseDouble(data[2]);
 			}
+			x /= i;
+			y /= i;
+			z /= i;
+			
+			result.vec[0] = x;
+			result.vec[1] = x;
+			result.vec[2] = x;
 			
 			context.write(key,result);
 		    // emit a key-value pair 
